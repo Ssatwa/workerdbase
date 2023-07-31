@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Worker Details</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+<h1 style="text-align: center; text-decoration: underline">Worker details</h1>
+<table class="table table-info" style="height: 300px; width: 70%; margin: 0 auto">
+    <thead class="table-dark">
+    <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+        <th>Date of Birth</th>
+        <th>Education</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for worker in workers %}
+    <tr>
+        <td>{{ worker.firstname }}</td>
+        <td>{{ worker.lastname }}</td>
+        <td>{{ worker.email }}</td>
+        <td>{{ worker.dob }}</td>
+        <td>{{ worker.education }}</td>
+        <td>
+            <a href="edit/{{ worker.id }}" class="btn btn-warning" >EDIT</a>
+            <a href="delete/{{ worker.id }}" class="btn btn-danger">DELETE</a>
+        </td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+
+<center><a href="/index" class="btn btn-primary">Add New Worker</a></center>
+</body>
+</html>
+

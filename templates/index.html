@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+<form method="post" action="/index/">
+    {% csrf_token %}
+
+       <div class="row">
+        <div class="col">
+            <label for="fname"> Worker Firstname</label>
+        </div>
+        <div class="col">
+        {{ form.firstname }}
+         </div>
+    </div>
+    <br>
+<div class="row">
+    <div class="col">
+        <label for="lname"> Worker Lastname</label>
+    </div>
+    <div class="col">
+        {{ form.lastname }}
+    </div>
+</div>
+    <br>
+<div class="row">
+    <div class="col">
+        <label for="email">Email</label>
+    </div>
+    <div class="col">
+        {{ form.email }}
+    </div>
+</div>
+    <br>
+<div class="row">
+    <div class="col">
+        <label for="dob">Date of Birth</label>
+    </div>
+    <div class="col">
+        {{ form.dob }}
+    </div>
+</div>
+    <br>
+<div class="row">
+    <div class="col">
+        <label for="education">Education</label>
+    </div>
+    <div class="col">
+        {{ form.education }}
+    </div>
+</div>
+    <br>
+<button type="submit">Submit</button>
+</form>
+
+</body>
+
+</html>
+{% endblock %}
